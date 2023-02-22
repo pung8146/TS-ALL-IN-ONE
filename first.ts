@@ -2,9 +2,12 @@ const a: string = "5";
 const b: number = 5;
 const c: boolean = true;
 const d: undefined = undefined;
-const e: null = null;
+const e: null  = null;
 const f: any = true;
 // any를 최대한으로 줄이는게 타입스크립트의 목표
+
+const f: 5 = false;
+const g: true = false;
 
 function add(x: number, y: number): number { return x + y; }
 // 함수의 타입스크립트는 뒤에 리턴값은 앞에
