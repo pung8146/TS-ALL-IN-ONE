@@ -1,4 +1,7 @@
 const a: string = "5";
+const aa = '5';
+// 이때 굳이 string 을 적을 필요가 없습니다 
+// 타입스크립트가 자동으로 추론 해주기에 틀릴경우에만 직접 수정해주면 됩니다. 
 const b: number = 5;
 const c: boolean = true;
 const d: undefined = undefined;
@@ -17,5 +20,7 @@ const add(x:number , y:number) => number => (x,y) => x + y;
 type Add = (x : number , y:number) => number;
 const add: Add = (x, y) => x + y;
 // 화살표 함수에서에 타입스크립트 표기법 2번
- 
-const obj: {lat : number, lan :number} = {lat:37.5 , lan:127.5}
+const arr: string[] = ['123' , '456']
+const arr2: number[] = [123 , 456]
+const arr3: Array<number> = [123 , 456]
+const obj: {lat : number, ion :number} = {lat:37.5 , ion:127.5}
