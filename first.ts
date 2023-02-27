@@ -8,9 +8,17 @@ const d: undefined = undefined;
 const e: null  = null;
 const f: any = true;
 // any를 최대한으로 줄이는게 타입스크립트의 목표
+const g: 5 = false;
+const h: true = false;
 
-const f: 5 = false;
-const g: true = false;
+// 타입스크립트 객체 배열 사용
+
+const arr: string[] = ['123' , '456']
+const arr2: number[] = [123 , 456]
+const arr3: Array<number> = [123 , 456]
+const obj: {lat : number, ion :number} = {lat:37.5 , ion:127.5}
+
+// 함수의 타입 표기법 ##############
 
 function add(x: number, y: number): number { return x + y; }
 // 함수의 타입스크립트는 뒤에 리턴값은 앞에
@@ -20,7 +28,10 @@ const add(x:number , y:number) => number => (x,y) => x + y;
 type Add = (x : number , y:number) => number;
 const add: Add = (x, y) => x + y;
 // 화살표 함수에서에 타입스크립트 표기법 2번
-const arr: string[] = ['123' , '456']
-const arr2: number[] = [123 , 456]
-const arr3: Array<number> = [123 , 456]
-const obj: {lat : number, ion :number} = {lat:37.5 , ion:127.5}
+
+// interface 를 통해 함수를 만드는 법 
+interface Add {
+    (x: number , y: number):number;
+}
+
+const add: Add = (x , y) => x + y;
