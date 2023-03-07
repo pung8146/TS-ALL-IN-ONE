@@ -76,7 +76,7 @@ const a: World = 'world';
 
 const b = `hello ${a}`;
 // type Greeting = 'hello world"
-type Greeting = `hello ${World}`
+type Greeting = `hello   ${World}`
 
 // rest 에서도 규칙이 적용됩니다 ###
 function rest(...args: string[]) {
@@ -97,5 +97,56 @@ const enum EDirection {
     Down,
     Left,
     Right,
-}
-const a = EDirection.up
+} // 이넘을 사용한 형태
+// js로 변환시 사라짐
+
+const ODirection = {
+    Up:0,
+    Down:1,
+    Left:2,
+    Right:3
+} as const // 객체로 사용한 형태
+// js로 변환시 as const 부분 사라짐
+// 남겨야할지 모른다면 남기는게 좋음 
+
+// ## 객체를 타입으로 하는방법
+// 간단하게 사용시 type 을 추천
+type A = { a : string};
+const a = A = {a: 'hello'};
+
+// 객체 지향이 필요할때 type
+interface B { a: string }
+const b : B = { a: 'hello'}
+
+//  ## 유니온 union(또는)
+ function add(x: string | number, y: string|number): string | number {
+    return x + y;
+ }
+// 안되는 이유 return 값 string | number 에서 number 해당될수있기에
+ add(1,2);
+ add('1' , 2)
+ add(1, '2') 
+ 
+ // # and일때는 모든속성이 다있어야 된다. intersection  
+ // # 여러개중 하나는 유니온 |
+ type A = {hello: 'world'} & { zero: 'cho'}
+
+ const a : A = {hello : 'world'}
+
+ // ex
+ type Animal = {breath : true}
+ type Poyouru = Animal & {breed: true}
+ type Human = Poyouru & {think: true}
+
+ interface A {
+    breath: true 
+ }
+ interface B extends A {
+    breed: true
+ }
+const b : B = {breath: true, breed:true}
+
+const sanghoon : Human = {breath:true, breed: true, think: true};
+
+ // ## interface에 I를 붙이고 타입에 T를 붙이는 네이밍 기법 enum에 E
+ // 요즘은 붙이지 않음..ㅊㅊㅊㅊㅊㅊ
