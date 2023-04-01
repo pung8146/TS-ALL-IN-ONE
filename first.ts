@@ -149,4 +149,4 @@ const b : B = {breath: true, breed:true}
 const sanghoon : Human = {breath:true, breed: true, think: true};
 
  // ## interface에 I를 붙이고 타입에 T를 붙이는 네이밍 기법 enum에 E
- // 요즘은 붙이지 않음..ㅊㅊㅊㅊㅊㅊ
+ // 요즘은 붙이지 않음..
